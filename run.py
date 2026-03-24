@@ -286,26 +286,6 @@ async def run_all(
 # ---------------------------------------------------------------------------
 
 
-def print_scores(results_dir: Path) -> None:
-    """Print a quick pass/fail summary from result.json files."""
-    task_dirs = [d for d in results_dir.iterdir() if d.is_dir() and (d / "result.json").exists()]
-    total = len(task_dirs)
-    if total == 0:
-        print("No results found.")
-        return
-
-    completed = sum(
-        1
-        for d in task_dirs
-        if json.load(open(d / "result.json")).get("_meta", {}).get("status") == "stopped"
-    )
-    errors = total - completed
-    print(f"\nResults in {results_dir}")
-    print(f"  Total : {total}")
-    print(f"  Done  : {completed}")
-    print(f"  Errors: {errors}")
-
-
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -349,21 +329,12 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Path to a JSON file containing a list of task IDs to run (filters the dataset)",
     )
-    p.add_argument(
-        "--scores",
-        action="store_true",
-        help="Print a score summary from existing results and exit",
-    )
     return p
 
 
 def main() -> None:
     args = build_parser().parse_args()
     results_dir = Path(args.results_dir)
-
-    if args.scores:
-        print_scores(results_dir)
-        return
 
     api_key = os.getenv("BROWSER_USE_API_KEY")
     if not api_key:
