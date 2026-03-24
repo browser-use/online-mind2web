@@ -6,7 +6,7 @@ Evaluates the [Browser Use Cloud API v3](https://cloud.browser-use.com) on the
 
 ## Results
 
-![Browser Agent Benchmark](./online_mind2web_styled.png)
+![Browser Agent Benchmark](./online_mind2web_results.png)
 
 | Model | Tasks | Passed | Pass Rate |
 |-------|-------|--------|-----------|
