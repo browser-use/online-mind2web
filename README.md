@@ -1,4 +1,4 @@
-# online-mind2web
+# Online-mind2web 
 
 Evaluates the [Browser Use Cloud API v3](https://cloud.browser-use.com) on the
 [Online-Mind2Web](https://github.com/OSU-NLP-Group/Online-Mind2Web) benchmark —
