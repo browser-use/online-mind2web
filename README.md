@@ -10,7 +10,7 @@ Evaluates the [Browser Use Cloud API v3](https://cloud.browser-use.com) on the
 
 | Model | Tasks | Passed | Pass Rate |
 |-------|-------|--------|-----------|
-| `bu-ultra` | 300 | 291 | **97%** |
+| `bu-max` | 300 | 291 | **97%** |
 
 Detailed results for each task are in [`results/`](./results/).
 
